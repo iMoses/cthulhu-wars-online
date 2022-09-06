@@ -1,0 +1,26 @@
+@import 'styles/reset.css';
+@import 'styles/colors.css';
+@import 'styles/fonts.css';
+
+:root {
+  --text-color: #fff;
+  --background-color: #000;
+}
+
+body {
+  color: var(--text-color);
+  font: 28px/1.2 var(--font-18th-century);
+  background: url('/background.png') var(--background-color) no-repeat center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#root {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  min-height: 100vh;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.25);
+  overflow: auto;
+}

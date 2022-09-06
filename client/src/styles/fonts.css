@@ -1,0 +1,18 @@
+:root {
+  --font-abaddon: 'Abaddon', sans-serif;
+  --font-18th-century: '18thCentury', sans-serif;
+}
+
+@font-face {
+  font-family: 'Abaddon';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Abaddon'), url('/fonts/abaddon.woff') format('woff');
+}
+
+@font-face {
+  font-family: '18thCentury';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Abaddon'), url('/fonts/18th-century.woff') format('woff');
+}
