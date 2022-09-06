@@ -9,7 +9,7 @@
 
 body {
   color: var(--text-color);
-  font: 28px/1.2 var(--font-18th-century);
+  font: 20px/1.5 var(--font-special-elite);
   background: url('/background.png') var(--background-color) no-repeat center;
   background-size: cover;
   overflow: hidden;

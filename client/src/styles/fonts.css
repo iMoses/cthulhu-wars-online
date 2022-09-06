@@ -1,6 +1,6 @@
 :root {
   --font-abaddon: 'Abaddon', sans-serif;
-  --font-18th-century: '18thCentury', sans-serif;
+  --font-special-elite: 'SpecialElite', sans-serif;
 }
 
 @font-face {
@@ -11,8 +11,8 @@
 }
 
 @font-face {
-  font-family: '18thCentury';
+  font-family: 'SpecialElite';
   font-style: normal;
   font-weight: normal;
-  src: local('Abaddon'), url('/fonts/18th-century.woff') format('woff');
+  src: local('Abaddon'), url('/fonts/special-elite.woff') format('woff');
 }
