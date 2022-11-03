@@ -7,12 +7,13 @@
   font-family: 'Abaddon';
   font-style: normal;
   font-weight: normal;
-  src: local('Abaddon'), url('/fonts/abaddon.woff') format('woff');
+  src: local('Abaddon'), url('@src/assets/fonts/abaddon.woff') format('woff');
 }
 
 @font-face {
   font-family: 'SpecialElite';
   font-style: normal;
   font-weight: normal;
-  src: local('Abaddon'), url('/fonts/special-elite.woff') format('woff');
+  src: local('Abaddon'),
+    url('@src/assets/fonts/special-elite.woff') format('woff');
 }

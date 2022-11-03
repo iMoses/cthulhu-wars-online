@@ -1,0 +1,15 @@
+@import 'styles/reset.css';
+@import 'styles/colors.css';
+@import 'styles/fonts.css';
+@import 'styles/variables.css';
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  position: absolute;
+  overflow: auto;
+  inset: 0;
+}
