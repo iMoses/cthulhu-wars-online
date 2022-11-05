@@ -12,7 +12,7 @@ export function DefaultLayout(props) {
       animate={isOpen ? 'sidebarExpanded' : 'sidebarCollapsed'}
     >
       <DefaultLayout.Sidebar>
-        <span onClick={() => setOpen(!isOpen)}>Toggle</span>
+        <DefaultLayout.SidebarToggle onClick={() => setOpen(!isOpen)} />
       </DefaultLayout.Sidebar>
       <DefaultLayout.Content>
         <Outlet />
@@ -35,7 +35,6 @@ const Container = styled(motion.div)`
   min-height: 100vh;
   grid-template-areas: 'sidebar content';
   grid-template-columns: var(--sidebar-width) 1fr;
-  background-color: burlywood;
   overflow: hidden;
 `;
 
@@ -49,4 +48,16 @@ DefaultLayout.Sidebar = styled.aside`
   position: relative;
   z-index: 1;
   border-right: 1px solid black;
+`;
+
+DefaultLayout.SidebarToggle = styled.span`
+  position: absolute;
+  top: 8px;
+  right: -16px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  border-radius: 100vmax;
+  background-color: white;
+  cursor: pointer;
 `;

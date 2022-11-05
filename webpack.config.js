@@ -9,6 +9,7 @@ const isDevMode = process.env.NODE_ENV !== 'production';
 module.exports = {
   mode: isDevMode ? 'development' : 'production',
   context: resolvePath('src'),
+  devtool: 'source-map',
   entry: {
     main: resolvePath('src/main.jsx'),
   },
@@ -28,7 +29,7 @@ module.exports = {
         use: [
           'babel-loader',
           {
-            loader: '@linaria/webpack-loader',
+            loader: '@linaria/webpack5-loader',
             options: { sourceMap: isDevMode },
           },
         ],
