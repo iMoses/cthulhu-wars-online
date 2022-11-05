@@ -1,8 +1,8 @@
 import Bottle from 'bottlejs';
 import { createBrowserHistory } from 'history';
 import { camelCase } from 'lodash';
-import { bindInstanceMethods } from '@src/library/utils/object-utils.js';
 import * as services from './services';
+import { bindInstanceMethods } from './utils/object-utils';
 
 export const bottle = new Bottle();
 

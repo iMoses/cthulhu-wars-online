@@ -1,9 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
-import RootRoute from '@src/components/routes/root.jsx';
+import { DefaultLayout } from '@src/components/containers/default-layout';
+import RootRoute from '@src/components/routes/root';
 
 export default createBrowserRouter([
   {
     path: '/',
-    element: <RootRoute />,
+    element: <DefaultLayout />,
+    children: [
+      {
+        path: 'root',
+        element: <RootRoute />,
+      },
+    ],
   },
 ]);

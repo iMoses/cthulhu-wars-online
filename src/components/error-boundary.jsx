@@ -1,4 +1,3 @@
-import { styled } from '@linaria/react';
 import { Component } from 'react';
 import ioc from '@src/library/ioc';
 
@@ -27,7 +26,7 @@ export class ErrorBoundary extends Component {
         case 'function':
           return this.props.fallback(this.state.error);
         case 'undefined':
-          return <ErrorLayout title="Something went wrong, please try again" />;
+          return 'Oops! Something went wrong';
         default:
           return this.props.fallback;
       }
@@ -35,5 +34,3 @@ export class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
-
-const ErrorLayout = styled.div``;

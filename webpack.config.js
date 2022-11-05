@@ -1,16 +1,12 @@
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import path from 'node:path';
-import url from 'node:url';
-import webpack from 'webpack';
-
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('node:path');
+const webpack = require('webpack');
 
 const isDevMode = process.env.NODE_ENV !== 'production';
 
-export default {
+module.exports = {
   mode: isDevMode ? 'development' : 'production',
   context: resolvePath('src'),
   entry: {
@@ -87,6 +83,7 @@ export default {
   devServer: {
     port: 3000,
     magicHtml: false,
+    historyApiFallback: true,
   },
 };
 
