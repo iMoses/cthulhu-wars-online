@@ -1,11 +1,22 @@
 // import { DoomTracker } from './doom-tracker.jsx';
 // import { InteractiveMap } from './interactive-map.jsx';
 import { styled } from '@linaria/react';
+import { observer } from 'mobx-react-lite';
+import { PageLayout } from '@src/components/containers/page-layout';
+import { Tooltip } from '@src/components/tooltip';
+import { useInject } from '@src/library/hooks/use-inject';
 
-export default function RootRoute() {
+export const RootRoute = observer(RootRouteMain);
+
+function RootRouteMain() {
+  const { storage } = useInject();
   return (
-    <>
+    <PageLayout>
       <Title>Cthulhu Wars Online</Title>
+      <Tooltip>
+        <button>Reference element</button>
+      </Tooltip>
+      <pre>{JSON.stringify(storage.get('test'), null, 2)}</pre>
       {/*<DoomTracker />*/}
       {/*<InteractiveMap />*/}
       <CardsGrid>
@@ -34,7 +45,7 @@ export default function RootRoute() {
           of his Monsters or Cultists in the area, his choice.
         </SpellCard>
       </CardsGrid>
-    </>
+    </PageLayout>
   );
 }
 

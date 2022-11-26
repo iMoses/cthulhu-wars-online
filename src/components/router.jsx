@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { DefaultLayout } from '@src/components/containers/default-layout';
-import RootRoute from '@src/components/routes/root';
+import { TabletopLayout } from '@src/components/containers/tabletop-layout';
+import { RootRoute } from '@src/components/routes/root';
 
 export default createBrowserRouter([
   {
     path: '/',
-    element: <DefaultLayout />,
+    element: <TabletopLayout />,
     children: [
       {
         path: 'root',

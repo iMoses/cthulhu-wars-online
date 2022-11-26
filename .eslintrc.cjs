@@ -1,11 +1,16 @@
 const restrictedGlobals = require('confusing-browser-globals');
 
 module.exports = {
+  root: true,
   env: { browser: true, es2021: true, node: true },
+  parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: 'detect' } },
-  extends: ['plugin:react/jsx-runtime'],
-  plugins: ['import', 'react', 'react-hooks', 'prettier'],
+  extends: [
+    'plugin:react/jsx-runtime',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  plugins: ['@typescript-eslint', 'import', 'react', 'react-hooks', 'prettier'],
   rules: {
     // http://eslint.org/docs/rules/
     // Possible Problems
@@ -32,13 +37,8 @@ module.exports = {
     'no-sparse-arrays': 'warn',
     'no-template-curly-in-string': 'warn',
     'no-this-before-super': 'warn',
-    'no-undef': 'error',
     'no-unreachable': 'warn',
     'no-unsafe-negation': 'warn',
-    'no-unused-vars': [
-      'warn',
-      { args: 'after-used', ignoreRestSiblings: true },
-    ],
     'no-use-before-define': [
       'warn',
       { functions: false, classes: false, variables: false },
@@ -173,7 +173,7 @@ module.exports = {
 
     // https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    // 'react-hooks/exhaustive-deps': 'warn',
 
     // https://github.com/prettier/eslint-plugin-prettier
     'prettier/prettier': 'warn',

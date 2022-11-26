@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import ioc from '@src/library/ioc';
+import ioc from '@src/ioc';
 
 export class ErrorBoundary extends Component {
   state = { error: null };
@@ -9,27 +9,15 @@ export class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    const { extraInfo } = this.props;
-    ioc.session.reportError(
-      {
-        message: error.message.toString(),
-        stack: errorInfo.componentStack.toString(),
-        userAgent: navigator.userAgent,
-      },
-      typeof extraInfo === 'function' ? extraInfo(error, errorInfo) : extraInfo
-    );
+    ioc.engine.reportError(error, errorInfo, this.props.extraInfo);
   }
 
   render() {
     if (this.state.error) {
-      switch (typeof this.props.fallback) {
-        case 'function':
-          return this.props.fallback(this.state.error);
-        case 'undefined':
-          return 'Oops! Something went wrong';
-        default:
-          return this.props.fallback;
+      if (typeof this.props.fallback === 'function') {
+        return this.props.fallback(this.state.error);
       }
+      return this.props.fallback ?? null;
     }
     return this.props.children;
   }

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "useDefineForClassFields": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es2022",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "paths": {
+      "@src/*": ["./src/*"]
+    },
+    "lib": ["dom", "esnext"]
+  }
+}

@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { ErrorBoundary } from '@src/components/error-boundary';
 
 export function PageLayout({ title, ...props }) {

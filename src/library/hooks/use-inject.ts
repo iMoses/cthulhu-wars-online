@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import ioc from '@src/library/ioc';
+import ioc from '@src/ioc';
 
 const InjectContext = createContext(ioc);
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -24,7 +25,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jsx?)$/,
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: ['ts-loader'],
+      },
+      {
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
           'babel-loader',
@@ -53,7 +59,7 @@ module.exports = {
     alias: {
       '@src': resolvePath('src'),
     },
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
   },
 
   plugins: [
