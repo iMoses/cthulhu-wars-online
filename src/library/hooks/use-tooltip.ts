@@ -4,10 +4,12 @@ import {
   shift as shiftMiddleware,
   arrow as arrowMiddleware,
   offset as offsetMiddleware,
+  inline as inlineMiddleware,
   useFloating,
   useHover,
   useInteractions,
   useRole,
+  safePolygon,
 } from '@floating-ui/react-dom-interactions';
 import {
   Children,
@@ -27,21 +29,42 @@ export interface ITooltipOptions {
   placement?: Placement;
   strategy?: Strategy;
   visible?: boolean;
+  inline?: boolean;
   offset?: number;
+  delay?:
+    | number
+    | Partial<{
+        open: number;
+        close: number;
+      }>;
+  safePolygon?:
+    | boolean
+    | Partial<{
+        restMs: number;
+        buffer: number;
+        blockPointerEvents: boolean;
+      }>;
 }
 
 export function useTooltip({
   placement,
   strategy,
-  offset,
   visible,
+  offset,
+  inline,
+  delay,
+  safePolygon: polygonProps,
 }: ITooltipOptions) {
   const arrowRef = useRef();
   const [open, onOpenChange] = useState(false);
   const isVisible = visible ?? open;
+  const handleClose = polygonProps
+    ? safePolygon(typeof polygonProps !== 'boolean' ? polygonProps : undefined)
+    : null;
   const middleware = [
     flipMiddleware(),
     shiftMiddleware(),
+    inline && inlineMiddleware(),
     offset && offsetMiddleware(offset),
     arrowMiddleware({ element: arrowRef }),
   ].filter(Boolean);
@@ -63,8 +86,8 @@ export function useTooltip({
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useHover(context),
-    useRole(context),
+    useHover(context, { delay, handleClose }),
+    useRole(context, { role: 'tooltip' }),
   ]);
 
   return {

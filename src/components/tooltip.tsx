@@ -12,8 +12,10 @@ export function Tooltip({
   content,
   placement = 'top',
   strategy = 'fixed',
+  delay = { open: 300, close: 0 },
   offset = 10,
   visible,
+  safePolygon,
   children,
 }: ITooltipProps) {
   const { isVisible, decorateElement, getFloatingProps, getArrowProps } =
@@ -22,6 +24,8 @@ export function Tooltip({
       strategy,
       visible,
       offset,
+      delay,
+      safePolygon,
     });
   return (
     <>
