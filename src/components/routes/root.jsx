@@ -13,7 +13,7 @@ function RootRouteMain() {
   return (
     <PageLayout>
       <Title>Cthulhu Wars Online</Title>
-      <Tooltip>
+      <Tooltip content="Tooltip test!">
         <button>Reference element</button>
       </Tooltip>
       <pre>{JSON.stringify(storage.get('test'), null, 2)}</pre>

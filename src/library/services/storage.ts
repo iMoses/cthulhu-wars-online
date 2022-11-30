@@ -4,7 +4,7 @@ import { subscribeToEvent } from '@src/library/utils/dom-utils';
 
 export class Storage {
   #cache = observable.map(null, { deep: false });
-  #store = storageFactory(window.localStorage);
+  #store = storageFactory(Storage.storageArea);
 
   constructor() {
     makeObservable(this, {
@@ -41,9 +41,11 @@ export class Storage {
     this.#cache.clear();
   }
 
+  static storageArea = window.localStorage;
+
   static subscribeToStorage(
     callback: (event: StorageEvent) => void,
-    storageArea = window.localStorage
+    storageArea = Storage.storageArea
   ) {
     return subscribeToEvent(window, 'storage', event => {
       if (event.storageArea === storageArea) {

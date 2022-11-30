@@ -8,7 +8,11 @@ export class Engine {
     this.#session = session;
   }
 
-  reportError(error: Error, errorInfo: ErrorInfo, extraInfo?: object) {
+  reportError(
+    error: Error,
+    errorInfo: ErrorInfo,
+    extraInfo?: Record<string, unknown>
+  ) {
     console.error(error, errorInfo, extraInfo);
   }
 }
